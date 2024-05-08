@@ -46,7 +46,7 @@ Grid::Grid(int n, int w, int h)
         tablero.push_back({});
         for (int j = 0; j < this->cols; j++)
         {
-            tablero[i].push_back(rand()%2);
+            tablero[i].push_back(0);
         }
     }
 }
