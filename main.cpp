@@ -9,6 +9,7 @@ int height = 500;
 int main()
 {
     RenderWindow window(VideoMode(width, height), "SFML works!");
+    window.setFramerateLimit(5);
     Grid grid(numCells,width,height);
     while (window.isOpen())
     {
@@ -20,15 +21,17 @@ int main()
 
             if(event.type == Event::MouseButtonPressed)
             {
-                if(event.MouseButtonPressed == Mouse::Left)
+                if(event.mouseButton.button == Mouse::Left)
                 {
                     int x = event.mouseButton.x;
                     int y = event.mouseButton.y;
+                    grid.toggle(x,y);
                 }
             }
         }
 
         window.clear();
+        grid.update();
         grid.drawTo(window);
         window.display();
     }

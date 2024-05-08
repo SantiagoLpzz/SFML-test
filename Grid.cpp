@@ -61,5 +61,23 @@ void Grid::toggle(int x, int y)
 
     //tablero[indexY][indexX] = tablero[indexX][indexY] == 0? 1 : 0;
 
-    tablero[indexY][indexX] = (tablero[indexY][indexX] + 1) % 2;
+    tablero[indexX][indexY] = 1;
+}
+
+void Grid::update()
+{
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            if(this->tablero[i][j] == 1)
+            {
+                if(j < this->cols-1 && this->tablero[i][j + 1] == 0)
+                {
+                    this->siguiente[i][j] = 0;
+                    this->siguiente[i][j+1] = 1;
+                }
+            }
+        }
+    }
 }
