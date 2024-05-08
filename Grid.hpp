@@ -9,6 +9,7 @@ class Grid
 {
 private:
     vector<vector<int>> tablero;
+    vector<vector<int>> siguiente;
     int rows, cols, w, h;
 
 public:
@@ -16,7 +17,7 @@ public:
     Grid(int n, int w, int h);
 
     void drawTo(RenderWindow  &window);
-    void toggle(int x, int y)
+    void toggle(int x, int y);
 };
 
 #endif

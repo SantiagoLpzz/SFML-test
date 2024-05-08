@@ -20,10 +20,11 @@ int main()
 
             if(event.type == Event::MouseButtonPressed)
             {
-                if(event.MouseButtonPressed == Mouse::Left)
+                if(event.mouseButton.button == Mouse::Left)
                 {
                     int x = event.mouseButton.x;
                     int y = event.mouseButton.y;
+                    grid.toggle(x,y);
                 }
             }
         }

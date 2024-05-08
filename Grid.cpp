@@ -1,4 +1,4 @@
-#include "Grid.hpp"
+#include "Grid.hpp" 
 
 Grid::Grid(int rows, int cols)
 {
@@ -12,6 +12,8 @@ Grid::Grid(int rows, int cols)
             tablero[i].push_back(0);
         }
     }
+
+    this->siguiente = vector<vector<int>>(rows, vector<int>(cols, 0));
 }
 
 void Grid::drawTo(RenderWindow  &window){
@@ -56,10 +58,10 @@ void Grid::toggle(int x, int y)
     int sizeX = this->w/this->rows;
     int sizeY = this->h/this->cols;
 
-    int indexX = x/sizeX;
-    int indexY = y/sizeY;
+    int indexX = x/sizeX; // 
+     int indexY = y/sizeY;
 
     //tablero[indexY][indexX] = tablero[indexX][indexY] == 0? 1 : 0;
 
-    tablero[indexY][indexX] = (tablero[indexY][indexX] + 1) % 2;
+    tablero[indexX][indexY] = (tablero[indexX][indexY] + 1) % 2;
 }
