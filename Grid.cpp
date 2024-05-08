@@ -12,6 +12,8 @@ Grid::Grid(int rows, int cols)
             tablero[i].push_back(0);
         }
     }
+
+    this->siguiente = vector<vector<int>>(rows, vector<int>(cols, 0));
 }
 
 void Grid::drawTo(RenderWindow  &window){
@@ -49,6 +51,8 @@ Grid::Grid(int n, int w, int h)
             tablero[i].push_back(0);
         }
     }
+
+    this->siguiente = vector<vector<int>>(rows, vector<int>(cols, 0));
 }
 
 void Grid::toggle(int x, int y)
@@ -80,4 +84,6 @@ void Grid::update()
             }
         }
     }
+
+    this->tablero = this->siguiente;
 }
