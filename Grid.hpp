@@ -16,7 +16,7 @@ public:
     Grid(int n, int w, int h);
 
     void drawTo(RenderWindow  &window);
-    void toggle(int x, int y)
+    void toggle(int x, int y);
 };
 
 #endif
