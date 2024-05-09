@@ -26,8 +26,8 @@ void Grid::drawTo(RenderWindow  &window){
         {
             RectangleShape rect(Vector2f(sizeX, sizeY));
             rect.setPosition(Vector2f(j*sizeX,i*sizeY));
-            rect.setOutlineThickness(1);
-            rect.setOutlineColor(Color::Black);
+            //rect.setOutlineThickness(1);
+            //rect.setOutlineColor(Color::Black);
             if(tablero[j][i] == 1)
             {
                 rect.setFillColor(Color::Green);
@@ -80,6 +80,21 @@ void Grid::update()
                 {
                     this->siguiente[i][j] = 0;
                     this->siguiente[i][j+1] = 1;
+                }
+
+                if(j < this->cols-1 && this->tablero[i][j + 1] == 1)
+                {
+                    if(j < this->cols-2 && i < this->rows-1 && this->tablero[i+1][j+2] == 0)
+                    {
+                        this->siguiente[i][j] = 0;
+                        this->siguiente[i+1][j+2] = 1;
+                    } else {
+                        if(j < this->cols-2 && i < this->rows+1 &&this->tablero[i-1][j+2] == 0)
+                        {
+                            this->siguiente[i][j] = 0;
+                            this->siguiente[i-1][j+2] = 1;
+                        }
+                    }
                 }
             }
         }
